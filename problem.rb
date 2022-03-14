@@ -1,6 +1,6 @@
 # 家志　隆平(かし　りゅうへい)
 
-class IsInRangeCalculator
+class InRangeCalculator
     def self.call(time:, from:, to:)
         new(time: time, from: from, to: to).call
     end
@@ -50,6 +50,6 @@ time = line[0].to_i
 from = line[1].split(',').first.to_i
 to = line[1].split(',').last.to_i
 
-result = IsInRangeCalculator.call(time: time, from: from, to: to)
+result = InRangeCalculator.call(time: time, from: from, to: to)
 
 puts result
