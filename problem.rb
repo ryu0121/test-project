@@ -14,13 +14,13 @@ class IsInRangeCalculator
         # MEMO: さらに分岐が増えそうだったらStorategyパターンを検討
         if range[:from] > range[:to]
             temporary_range = {from: range[:from], to: END_TIME}
-            result = isInRange(time: time, range: temporary_range)
+            result = in_range?(time: time, range: temporary_range)
             return result if result
 
             temporary_range = {from: START_TIME, to: range[:to]}
-            isInRange(time: time, range: temporary_range)
+            in_range?(time: time, range: temporary_range)
         else
-            isInRange(time: time, range: range)
+            in_range?(time: time, range: range)
         end
     end
 
@@ -29,7 +29,7 @@ class IsInRangeCalculator
     START_TIME = 0
     END_TIME = 24
 
-    def isInRange(time:, range:)
+    def in_range?(time:, range:)
         return range[:from] == time && time == range[:to] if range[:from] == range[:to]
         range[:from] <= time && time < range[:to]
     end
